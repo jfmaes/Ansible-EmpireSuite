@@ -1,0 +1,21 @@
+- name: ensure wget is present
+  apt:
+    name: "wget"
+    state: present
+    update_cache: yes
+  become: yes
+  
+- name: downloading starkiller
+  get_url:
+    url: '{{ starkiller_url }}'
+    dest: /opt/starkiller
+    mode: '777'
+  
+- name: making a symlink
+  file: 
+   src: /opt/starkiller
+   dest: /usr/bin/starkiller
+   state: link
+   
+
+
