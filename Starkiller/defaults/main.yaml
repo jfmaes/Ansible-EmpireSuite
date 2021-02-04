@@ -1,1 +1,2 @@
 starkiller_url : "https://github.com/BC-SECURITY/Starkiller/releases/download/v1.5.1/starkiller-1.5.1.AppImage"
+install_dir: "/opt"
