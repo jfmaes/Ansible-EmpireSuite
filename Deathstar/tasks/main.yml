@@ -1,0 +1,15 @@
+- name: ensure python3-pip is present
+  apt:
+    name: "python3-pip"
+    state: present
+    update_cache: yes
+  become: yes
+  
+- name: installing deathstar
+  pip:
+   name: deathstar-empire
+  become: yes
+  
+
+   
+
