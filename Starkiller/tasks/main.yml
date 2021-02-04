@@ -8,12 +8,12 @@
 - name: downloading starkiller
   get_url:
     url: '{{ starkiller_url }}'
-    dest: /opt/starkiller
+    dest: '{{ install_dir }}'/starkiller
     mode: '777'
   
 - name: making a symlink
   file: 
-   src: /opt/starkiller
+   src: '{{ install_dir }}'/starkiller
    dest: /usr/bin/starkiller
    state: link
    
