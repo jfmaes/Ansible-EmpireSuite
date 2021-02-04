@@ -1,0 +1,53 @@
+- name: ensure git is present
+  apt:
+    name: "git"
+    state: present
+    update_cache: yes
+  become: yes
+  
+- name: ensure libssl-dev is present
+  apt:
+   name: libssl-dev
+   state: present
+  become: yes
+  
+- name: ensure swig is present
+  apt:
+    name: swig
+    state: present
+  become: yes
+   
+- name: ensure python3-dev is present
+  apt:
+    name: python3-dev
+    state: present
+  become: yes
+ 
+- name: ensure gcc is present
+  apt:
+    name: gcc
+    state: present
+  become: yes
+   
+- name: ensure python3-pip is present
+  apt:
+    name: python3-pip
+    state: present
+  become: yes
+
+- name: cloning empire
+  git:
+    repo: https://github.com/BC-SECURITY/Empire
+    dest: '{{install_dir}}/empire'
+  become: yes
+
+- name: installing empire
+  expect:
+   timeout: 300
+   command: ./setup/install.sh
+   chdir: '{{install_dir}}empire'
+   responses:
+     'password' : ''
+   echo: yes
+  become: yes
+  
