@@ -10,12 +10,14 @@
     url: '{{ starkiller_url }}'
     dest: '{{ install_dir }}/starkiller'
     mode: '777'
+  become: yes
   
 - name: making a symlink
   file: 
    src: '{{ install_dir }}/starkiller'
    dest: /usr/bin/starkiller
    state: link
+  become: yes
    
 
 
