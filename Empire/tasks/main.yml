@@ -45,7 +45,7 @@
   expect:
    timeout: 300
    command: ./setup/install.sh
-   chdir: '{{install_dir}}empire'
+   chdir: '{{install_dir}}/empire'
    responses:
      'password' : ''
    echo: yes
