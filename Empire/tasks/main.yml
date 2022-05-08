@@ -41,13 +41,4 @@
     dest: '{{install_dir}}/empire'
   become: yes
 
-- name: installing empire
-  expect:
-   timeout: 300
-   command: ./setup/install.sh
-   chdir: '{{install_dir}}/empire'
-   responses:
-     'password' : ''
-   echo: yes
-  become: yes
   
